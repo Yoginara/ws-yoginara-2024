@@ -1,7 +1,7 @@
 package url
 
 import (
-	"iteung/controller"
+	"github.com/Yoginara/ws-yoginara-2024/controller"
 
 	"github.com/gofiber/fiber/v2"
 )
@@ -17,4 +17,9 @@ func Web(page *fiber.App) {
 	page.Delete("/", controller.Sink)
 	page.Options("/", controller.Sink)
 
+	page.Get("/checkip", controller.Homepage) //ujicoba panggil package musik
+	page.Get("/presensi", controller.GetPresensi)
+	page.Get("/presensi/:id", controller.GetPresensiID) //menampilkan data presensi berdasarkan id
+
+	page.Post("/insert", controller.InsertDataPresensi)
 }
