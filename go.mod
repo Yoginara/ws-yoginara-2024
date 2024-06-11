@@ -3,7 +3,7 @@ module github.com/Yoginara/ws-yoginara-2024
 go 1.22.1
 
 require (
-	github.com/Yoginara/packageku v0.0.1
+	github.com/Yoginara/packageku v0.0.2
 	github.com/aiteung/atdb v0.1.7
 	github.com/aiteung/musik v0.0.5
 	github.com/gofiber/fiber/v2 v2.52.4
