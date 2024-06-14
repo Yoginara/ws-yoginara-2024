@@ -3,12 +3,13 @@ package controller
 import (
 	"errors"
 	"fmt"
+	"net/http"
+
+	inimodel "github.com/Yoginara/packageku/model"
+	cek "github.com/Yoginara/packageku/module"
 	"github.com/Yoginara/ws-yoginara-2024/config"
 	"github.com/aiteung/musik"
 	"github.com/gofiber/fiber/v2"
-	inimodel "github.com/Yoginara/packageku/model"
-	cek "github.com/Yoginara/packageku/module"
-	"net/http"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 )
@@ -17,6 +18,15 @@ func Homepage(c *fiber.Ctx) error {
 	ipaddr := musik.GetIPaddress()
 	return c.JSON(ipaddr)
 }
+
+// GetPresensi godoc
+// @Summary Get All Data Presensi.
+// @Description Mengambil semua data presensi.
+// @Tags Presensi
+// @Accept json
+// @Produce json
+// @Success 200 {object} Presensi
+// @Router /presensi [get]
 
 func GetPresensi(c *fiber.Ctx) error {
 	ps := cek.GetAllPresensi(config.Ulbimongoconn, "presensi")
